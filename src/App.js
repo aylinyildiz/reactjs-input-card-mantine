@@ -33,10 +33,10 @@ function App() {
     setText("");
     const copyList = [...list];
     copyList.push({
-      id:5,
       title:title,
       paragraf: text
     })
+    
     setList(copyList);
   }
   return (
@@ -51,7 +51,7 @@ function App() {
         Create Card
       </Button>
       <Grid>
-        {list.map(({ title, paragraf }, i) => (
+        {list.map(({ title, paragraf, id }, i) => (
             <Grid.Col span={4}   key={`index ${i}`}>
                <Card
                 paragraf={paragraf}
@@ -59,7 +59,6 @@ function App() {
                 lesson={lesson}
               />
             </Grid.Col>
-         
         ))}
       </Grid>
       </Stack>
