@@ -5,30 +5,27 @@ import "./App.css";
 
 let arr = [
   {
+    id:1,
     title: "Dağ 1",
     paragraf: "Açıklama 1",
   },
   {
+    id:2,
     title: "Dağ 2",
     paragraf: "Açıklama 2",
   },
   {
+    id:3,
     title: "Dağ 3",
     paragraf: "Açıklama 3",
-  },
-  {
-    title: "Dağ 4",
-    paragraf: "Açıklama 4",
-  },
+  }
 ];
 
 function App() {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [list, setList] = useState(arr);
-  const [lesson, setLesson] = useState([]);
   const click = () => {
-    console.log("tıklandı",title,text);
     setTitle("");
     setText("");
     const copyList = [...list];
@@ -51,12 +48,18 @@ function App() {
         Create Card
       </Button>
       <Grid>
-        {list.map(({ title, paragraf, id }, i) => (
+        {list.map(({ title, paragraf }, i) => (
             <Grid.Col span={4}   key={`index ${i}`}>
                <Card
                 paragraf={paragraf}
                 title={title}
-                lesson={lesson}
+                i={i}
+                click={()=>{
+                  let copyList = [...list];
+                  copyList.splice(i,1);
+                  setList(copyList)
+                }
+                 }
               />
             </Grid.Col>
         ))}

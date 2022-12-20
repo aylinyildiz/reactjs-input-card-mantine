@@ -1,6 +1,6 @@
-import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';import React from 'react'
+import { Card,CloseButton, Image, Text, Badge, Button, Group } from '@mantine/core';import React from 'react'
 
-function CardComponent({ title, paragraf }) {
+function CardComponent({ title, paragraf, i, click  }) {
   return (
     <Card shadow="sm" p="lg" radius="md" withBorder>
     <Card.Section>
@@ -16,11 +16,13 @@ function CardComponent({ title, paragraf }) {
       {/* <Badge color="pink" variant="light">
         On Sale
       </Badge> */}
+      <CloseButton aria-label="Close modal" onClick={click}/>
     </Group>
 
     <Text size="sm" color="dimmed">
       {paragraf}
     </Text>
+    
 
     <Button variant="light" color="blue" fullWidth mt="md" radius="md">
       Book classic tour now
