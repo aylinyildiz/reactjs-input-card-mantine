@@ -29,6 +29,8 @@ function App() {
   const [lesson, setLesson] = useState([]);
   const click = () => {
     console.log("tıklandı",title,text);
+    setTitle("");
+    setText("");
     const copyList = [...list];
     copyList.push({
       id:5,
